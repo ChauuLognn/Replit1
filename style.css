@@ -1,0 +1,253 @@
+/* EXTRA 3: CSS Variables - Quản lý màu sắc chuyên nghiệp */
+:root {
+    --bg-color: #0f172a;       /* Màu nền chính (Xanh đen đậm) */
+    --bg-secondary: #1e293b;   /* Màu nền phụ */
+    --text-main: #e2e8f0;      /* Màu chữ chính (Trắng xám) */
+    --text-muted: #94a3b8;     /* Màu chữ mờ */
+    --accent: #38bdf8;         /* Màu điểm nhấn (Xanh da trời sáng) */
+    --font-main: 'Poppins', sans-serif;
+}
+
+/* Reset Code */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+}
+
+/* --- Layout Helpers --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center { text-align: center; }
+
+/* --- Navigation --- */
+.navbar {
+    background-color: rgba(15, 23, 42, 0.95);
+    padding: 1.2rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #334155;
+}
+
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: var(--accent);
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.subtitle {
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.description {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.description span {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+    transform: translateY(-3px);
+}
+
+/* --- Sections --- */
+.section {
+    padding: 80px 0;
+}
+
+.bg-darker {
+    background-color: var(--bg-secondary);
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin: 10px auto 0;
+}
+
+/* --- Skills Grid --- */
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    background: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    width: 250px;
+    border: 1px solid #334155;
+}
+
+.skill-card i {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+/* --- Portfolio Grid (CSS GRID) --- */
+.projects-grid {
+    /* EXTRA 2: Using CSS Grid instead of Flexbox */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    /* EXTRA 4: Transition & Transform */
+    transition: transform 0.3s ease;
+    border: 1px solid #334155;
+}
+
+.project-card:hover {
+    transform: translateY(-10px); /* Card bay lên khi hover */
+}
+
+.project-img {
+    height: 180px;
+    width: 100%;
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.project-info a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid #334155;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .nav-flex {
+        flex-direction: column;
+    }
+    
+    .menu {
+        margin-top: 20px;
+        gap: 15px;
+    }
+
+    .skills-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .skill-card {
+        width: 100%;
+    }
+}
